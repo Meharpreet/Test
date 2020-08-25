@@ -4,7 +4,7 @@ pipeline {
     jdk 'JDK'
    }
    environment {
-    GROOVY_HOME = tool name: 'Groovy-2.4.9', type: 'hudson.plugins.groovy.GroovyInstallation'
+    GROOVY_HOME = tool name: 'Groovy', type: 'hudson.plugins.groovy.GroovyInstallation'
 }
   options {
         timestamps()
