@@ -13,7 +13,7 @@ pipeline {
     stage('Shared Library') {
               steps {
 	       sh "ls"
-	       sh "${GROOVY_HOME}/bin/groovy TestClass.groovy"
+	       bat "${GROOVY_HOME}/bin/groovy TestClass.groovy"
    	     }
           }
      
