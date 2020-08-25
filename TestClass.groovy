@@ -1,4 +1,4 @@
-class Main 
+class TestClass 
 {
   static void main(def args)
   {
