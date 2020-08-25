@@ -7,9 +7,11 @@ pipeline {
     stage('Shared Library') {
               steps {
                script {
+	       code = load "TestClass.groovy"
+	       code.main()
 	       echo "Hi"
               }
-			  }
+   }
           }
      
        }
