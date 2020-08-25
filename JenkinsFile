@@ -1,5 +1,9 @@
 pipeline {
   agent any
+   tools {
+    jdk JDK
+    groovy groovy
+  }
   options {
         timestamps()
     }
