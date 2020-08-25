@@ -1,23 +1,17 @@
 pipeline {
-agent {
-node {
-label "$TEST_CLIENT"
-}
+agent any
 tools {
 jdk 'JDK'
 }
 environment {
 GROOVY_HOME = tool name: 'Groovy', type: 'hudson.plugins.groovy.GroovyInstallation'
 }
-}	
 options {
 timestamps()
 }
 stages{
 stage('Shared Library') {
 steps {
-log.info 'Starting vars files for mehar test '
-log.warning "args: $TEST_KIT_SOURCE_URL"
 script {
 if(isUnix()){
 sh "${GROOVY_HOME}/bin/groovy TestCode.groovy"
