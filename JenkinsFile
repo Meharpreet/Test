@@ -20,11 +20,11 @@ log.info 'Starting vars files for mehar test '
 log.warning "args: $TEST_KIT_SOURCE_URL"
 script {
 if(isUnix()){
-sh "${GROOVY_HOME}/bin/groovy GetTestCodeFromArtifactory.groovy"
+sh "${GROOVY_HOME}/bin/groovy TestCode.groovy"
 }
 else
 {
-bat "${GROOVY_HOME}/bin/groovy GetTestCodeFromArtifactory.groovy"
+bat "${GROOVY_HOME}/bin/groovy TestCode.groovy"
 }
 }
 }
