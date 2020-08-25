@@ -1,0 +1,25 @@
+@Library('kate-library')_
+
+pipeline {
+  agent {
+    node {
+      label "$TEST_CLIENT"
+    }
+  }
+  options {
+        timestamps()
+    }
+  stages{
+    stage('Shared Library') {
+              steps {
+               script {
+               log.info 'Starting vars files for mehar test '
+               log.warning "args: $TEST_KIT_SOURCE_URL"
+               GetTestCodeFromArtifactory.main();
+              }
+			  }
+          }
+     
+       }
+
+} 
