@@ -1,12 +1,3 @@
-class TestClass 
-{
-  static void main(def args)
-  {
-    println "Hi Mehar it's me"
-  }
-}
-
-
 pipeline {
   agent any
   options {
@@ -16,6 +7,7 @@ pipeline {
     stage('Shared Library') {
               steps {
                script {
+	       ls
 	       groovy TestClass.groovy
               }
    	     }
