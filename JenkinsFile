@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label "$TEST_CLIENT"
+      label "My Pipeline"
     }
   }
   options {
