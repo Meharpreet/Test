@@ -14,11 +14,11 @@ stage('Shared Library') {
 steps {
 script {
 if(isUnix()){
-sh "${GROOVY_HOME}/bin/groovy TestCode.groovy"
+sh "${GROOVY_HOME}/bin/groovy TestClass.groovy"
 }
 else
 {
-bat "${GROOVY_HOME}/bin/groovy TestCode.groovy"
+bat "${GROOVY_HOME}/bin/groovy TestClass.groovy"
 }
 }
 }
