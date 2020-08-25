@@ -1,5 +1,3 @@
-@Library('kate-library')_
-
 pipeline {
   agent {
     node {
@@ -13,9 +11,7 @@ pipeline {
     stage('Shared Library') {
               steps {
                script {
-               log.info 'Starting vars files for mehar test '
-               log.warning "args: $TEST_KIT_SOURCE_URL"
-               GetTestCodeFromArtifactory.main();
+	       echo "Hi"
               }
 			  }
           }
