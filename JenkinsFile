@@ -6,9 +6,7 @@ pipeline {
   stages{
     stage('Shared Library') {
               steps {
-               script {
-	       ls
-              }
+	       sh "ls"
    	     }
           }
      
