@@ -12,7 +12,8 @@ pipeline {
   stages{
     stage('Shared Library') {
               steps {
-	       sh "ls"
+	      script 
+	      {
 	       if(isUnix())
 	       {
 	       sh "${GROOVY_HOME}/bin/groovy TestClass.groovy"
@@ -20,6 +21,7 @@ pipeline {
 	       else
 	       {
 	       bat "${GROOVY_HOME}/bin/groovy TestClass.groovy"
+	       }
 	       }
    	     }
           }
