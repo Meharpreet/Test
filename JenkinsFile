@@ -1,31 +1,34 @@
 pipeline {
-  agent any
-   tools {
-    jdk 'JDK'
-   }
-   environment {
-    GROOVY_HOME = tool name: 'Groovy', type: 'hudson.plugins.groovy.GroovyInstallation'
+agent {
+node {
+label "$TEST_CLIENT"
 }
-  options {
-        timestamps()
-    }
-  stages{
-    stage('Shared Library') {
-              steps {
-	      script 
-	      {
-	       if(isUnix())
-	       {
-	       sh "${GROOVY_HOME}/bin/groovy TestClass.groovy"
-	       }
-	       else
-	       {
-	       bat "${GROOVY_HOME}/bin/groovy TestClass.groovy"
-	       }
-	       }
-   	     }
-          }
-     
-       }
-
+tools {
+jdk 'JDK'
+}
+environment {
+GROOVY_HOME = tool name: 'Groovy', type: 'hudson.plugins.groovy.GroovyInstallation'
+}
+}	
+options {
+timestamps()
+}
+stages{
+stage('Shared Library') {
+steps {
+log.info 'Starting vars files for mehar test '
+log.warning "args: $TEST_KIT_SOURCE_URL"
+script {
+if(isUnix()){
+sh "${GROOVY_HOME}/bin/groovy GetTestCodeFromArtifactory.groovy"
+}
+else
+{
+bat "${GROOVY_HOME}/bin/groovy GetTestCodeFromArtifactory.groovy"
+}
+}
+}
+}
+}
 } 
+ 
