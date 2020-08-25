@@ -2,8 +2,10 @@ pipeline {
   agent any
    tools {
     jdk 'JDK'
-    groovy 'Groovy'
-  }
+   }
+   environment {
+    GROOVY_HOME = tool name: 'Groovy-2.4.9', type: 'hudson.plugins.groovy.GroovyInstallation'
+}
   options {
         timestamps()
     }
@@ -11,7 +13,7 @@ pipeline {
     stage('Shared Library') {
               steps {
 	       sh "ls"
-	       sh "groovy TestClass.groovy"
+	       sh "${GROOVY_HOME}/bin/groovy TestClass.groovy"
    	     }
           }
      
